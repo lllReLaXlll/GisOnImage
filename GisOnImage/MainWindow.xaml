@@ -1,0 +1,71 @@
+﻿<Window x:Class="GisOnImage.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GisOnImage"
+        mc:Ignorable="d"
+        Title="GisOnImage" 
+        Height="450" 
+        Width="800">
+    <Grid>
+        <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="606*"/>
+                <ColumnDefinition Width="187*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="43.2"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <ScrollViewer 
+                HorizontalScrollBarVisibility="Auto" 
+                VerticalScrollBarVisibility="Auto" 
+                Grid.ColumnSpan="2" 
+                Margin="0,38,-0.4,0" 
+                Grid.RowSpan="2">
+                <Canvas Name="myCanvas" 
+                        Cursor="Cross" 
+                        ClipToBounds="True" 
+                        Background="AliceBlue" 
+                        Focusable="True"
+                        MouseLeftButtonDown="AddEdge"
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Top">
+                    <Image Name="myImage"></Image>
+                </Canvas>
+
+            </ScrollViewer>
+            <StackPanel Orientation="Horizontal" 
+                        Grid.ColumnSpan="2" 
+                        Margin="0,0,-0.4,5.2">
+                <Button Content="Открыть" 
+                        Margin="5"
+                        VerticalAlignment ="Center"
+                        Click="LoadImage"></Button>
+                <Button Content="Сохранить" 
+                        Margin="5"
+                        VerticalAlignment ="Center"
+                        Click="SaveImage"></Button>
+                <StackPanel VerticalAlignment ="Center" 
+                            Margin="5">
+                    <TextBlock Text="толщина крестика" 
+                               HorizontalAlignment="Center"></TextBlock>
+                    <Slider x:Name="SliderCrossThick"
+                    
+                    Minimum="2" 
+                    Maximum="5"
+                    Width="100"/>
+                </StackPanel>
+                <StackPanel VerticalAlignment ="Center">
+                    <TextBlock Text="размер крестика" 
+                               HorizontalAlignment="Center"></TextBlock>
+                    <Slider x:Name="SliderCrossLength" 
+                    Minimum="5"
+                    Maximum="20" 
+                    Width="100"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
